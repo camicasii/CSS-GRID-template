@@ -1,0 +1,76 @@
+/*
+Forma basica de trabajar con grid CSS pero no es la mas optima
+*/
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: blanchedalmond;
+}
+.contenedor{
+ width: 90%;
+ max-width: 1000px;
+ margin: 20px auto;
+ display: grid;
+ grid-gap: 20px;
+ grid-template: repeat(4,auto)/repeat(3,1fr);/*filas / columnas*/
+}
+.contenedor >div,
+.contenedor .header,
+.contenedor .contendio,
+.contenedor .sidebar,
+.contenedor .footer{
+    background: #ffffff;
+    padding: 20px;    
+    border-radius: 4px;    
+}
+.contenedor .header{
+background: #12203e;
+color: #ffffff;
+grid-column:span 3 ;
+}
+.contenedor .contendio{
+    grid-column: span 2;    
+}
+.contenedor .sidebar{
+    grid-column:3/4 ;
+    background:orange;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    grid-row: span 2;
+
+}
+.contenedor .widget-1,
+.contenedor .widget-2{
+    background: #55a8fd;
+    color: #ffffff;
+    height: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.contenedor .footer{
+    background: #12203e;
+    color: #ffffff;
+    grid-column: span 3;
+}
+
+@media screen and (max-width:768px){
+    
+    .contenedor .contendio{
+        grid-column: 1/-1;/* equivalente a    grid-column: span 3;*/
+    }
+    .contenedor .sidebar{
+        grid-column: 1/-1;/* equivalente a    grid-column: span 3;*/
+        order: 0;
+    }
+    .contenedor .widget-1{
+        grid-column: span 2;
+    }
+}
